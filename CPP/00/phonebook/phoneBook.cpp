@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:24:52 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/25 17:18:47 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:58:42 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ PhoneBook::~PhoneBook()
     
 }
 
-void PhoneBook::addContact(PhoneBook phonebook)
+void PhoneBook::addContact()
 {
-	phonebook.contacts[numberContact].setInfo();
+	contacts[numberContact].setInfo();
 	numberContact++;
 }
 
-void PhoneBook::searchContact(PhoneBook phonebook)
+void PhoneBook::searchContact()
 {
 	int i = 0;
 	std::cout << "First Name | Last Name | Nickname" << std::endl;
 	while (i < numberContact)
 	{
-		phonebook.contacts[i].printResume();
+		contacts[i].printResume();
 		i++;
 	}
 }

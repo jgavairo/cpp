@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:24:49 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/25 17:06:18 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:56:42 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class PhoneBook
     public :
         PhoneBook();
         ~PhoneBook();
-        void	addContact(PhoneBook phonebook);
-		void	searchContact(PhoneBook phonebook);
+        void	addContact();
+		void	searchContact();
 
 };

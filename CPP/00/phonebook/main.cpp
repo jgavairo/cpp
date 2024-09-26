@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:38:01 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/25 17:11:36 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:57:24 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main()
     {
         std::cin >> cmd;
         if (cmd == "SEARCH")
-            phonebook.searchContact(phonebook);
+            phonebook.searchContact();
         else if (cmd == "ADD")
-            phonebook.addContact(phonebook);
+            phonebook.addContact();
         else if (cmd == "EXIT")
             break ;
     }

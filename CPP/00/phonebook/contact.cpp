@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:41:17 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/25 17:20:34 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:21:31 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Contact::Contact()
 void Contact::setInfo()
 {
     std:: cout << "Firstname : ";
-    getline()::cin >> firstName;
+    std:: cin >> firstName;
     std:: cout << "Last Name : ";
     std:: cin >> lastName;
     std:: cout << "Nickname : ";
