@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:41:17 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/26 16:21:31 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/09/29 18:17:45 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,33 @@ Contact::Contact()
 
 }
 
-void Contact::setInfo()
+void Contact::setInfo(int i)
 {
+    index = i;
     std:: cout << "Firstname : ";
-    std:: cin >> firstName;
+    getline(std::cin, firstName);
     std:: cout << "Last Name : ";
-    std:: cin >> lastName;
+    getline(std::cin, lastName);
     std:: cout << "Nickname : ";
-    std:: cin >> nickName;
+    getline(std::cin, nickName);
     std:: cout << "Phonenumber : ";
-    std:: cin >> phoneNumber;
+    getline(std::cin, phoneNumber);
+}
+
+std::string truncatestring(std::string str)
+{
+    if (str.length() > 10)
+        return (str.substr(0, 9) + ".");
+    return (str);
 }
 
 void    Contact::printResume()
 {
-    std::cout << firstName << " | " << lastName << " | " << nickName << std::endl;
+    std::cout   << std::setw(10) << std::right << index
+                << " | " << std::setw(10) << std::right << truncatestring(firstName)
+                << " | " << std::setw(10) << std::right << truncatestring(lastName)
+                << " | " << std::setw(10) << std::right << truncatestring(nickName)
+                << std::endl;
 }
 
 
