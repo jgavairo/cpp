@@ -5,23 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 16:24:52 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/30 17:54:10 by jgavairo         ###   ########.fr       */
+/*   Created: 2024/09/30 17:58:04 by jgavairo          #+#    #+#             */
+/*   Updated: 2024/09/30 17:58:06 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "phoneBook.hpp"
 
 PhoneBook::PhoneBook()
 {
-    numberContacts = 0;
+	numberContacts = 0;
 	numberofContact = 0;
 }
 
 PhoneBook::~PhoneBook()
 {
-    
+		
 }
 
 void PhoneBook::addContact()

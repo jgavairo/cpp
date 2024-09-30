@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 16:24:49 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/30 11:51:10 by jgavairo         ###   ########.fr       */
+/*   Created: 2024/09/30 17:58:23 by jgavairo          #+#    #+#             */
+/*   Updated: 2024/09/30 17:58:25 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class PhoneBook
     private :
         Contact contacts[8];
 		int		numberofContact;
-        int     numberContacts;
+        int  numberContacts;
         
     public :
         PhoneBook();
