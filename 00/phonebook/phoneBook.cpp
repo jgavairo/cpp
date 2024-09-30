@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:58:04 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/30 17:58:06 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/10/01 00:07:39 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,24 @@ PhoneBook::~PhoneBook()
 		
 }
 
-void PhoneBook::addContact()
+int PhoneBook::addContact()
 {
 	if (numberContacts < 8)
 		numberContacts++;
 	if (numberofContact < 8)
 	{
-		contacts[numberofContact].setInfo(numberofContact + 1);
+		if (contacts[numberofContact].setInfo(numberofContact + 1) == -1)
+			return (-1);
 		numberofContact++;
 	}
 	else
 	{
 		numberofContact = 0;
-		contacts[numberofContact].setInfo(numberofContact + 1);
+		if (contacts[numberofContact].setInfo(numberofContact + 1) == -1)
+			return (-1);
 		numberofContact++;
 	}
+	return (0);
 }
 
 void PhoneBook::searchContact()
@@ -60,7 +63,7 @@ void PhoneBook::searchContact()
 	}
 }
 
-void PhoneBook::detailContact()
+int PhoneBook::detailContact()
 {
 	std::string 		index;
 	int					nb;
@@ -69,7 +72,9 @@ void PhoneBook::detailContact()
 	{
 		nb = 0;
 		std::cout << "Choose a valid index : ";
-		std::cin >> index;
+		getline(std::cin, index);
+		if (std::cin.eof())
+			return (-1);
 		std::stringstream ss(index);
 		ss >> nb;
 		if (ss.fail())
@@ -79,4 +84,5 @@ void PhoneBook::detailContact()
 		else 
 			contacts[nb - 1].printDetails();
 	}
+	return (0);
 }

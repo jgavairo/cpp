@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:59:26 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/30 17:59:27 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/09/30 23:58:48 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ std::string getNoEmptyInput(const std::string& prompt)
 	{
 		std::cout << prompt;
 		getline(std::cin, input);
+		if (std::cin.eof())
+			return ("");
 		if (input.empty())
 		{
 			std::cout << "Error, empty value. Please retry !" << std::endl;
@@ -36,16 +38,27 @@ std::string getNoEmptyInput(const std::string& prompt)
 	return (input);
 }
 
-void Contact::setInfo(int i)
+int Contact::setInfo(int i)
 {
 	std::string getNoEmptyInput(const std::string& prompt);
 		
 	index = i;
 	firstName = getNoEmptyInput("First name : ");
+	if (firstName.empty())
+		return (-1);
 	lastName = getNoEmptyInput("Last name : ");
+	if (lastName.empty())
+		return (-1);
 	nickName = getNoEmptyInput("Nickname : ");
+	if (nickName.empty())
+		return (-1);
 	phoneNumber = getNoEmptyInput("Phone number : ");
+	if (phoneNumber.empty())
+		return (-1);
 	darkestSecret = getNoEmptyInput("The darkest secret : ");
+	if (darkestSecret.empty())
+		return (-1);
+	return (0);
 }
 
 std::string truncatestring(std::string str)

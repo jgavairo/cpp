@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:59:02 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/30 17:59:03 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/09/30 23:41:31 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ private:
 	int   index;
 
 public:
-	Contact(/* args */);
+	Contact();
 	~Contact();
-	void setInfo(int i);
+	int setInfo(int i);
 	void printResume();
 	void printDetails();
 	std::string getNoEmptyInput(const std::string& prompt);
