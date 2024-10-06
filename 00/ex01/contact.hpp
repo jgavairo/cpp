@@ -6,9 +6,12 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:59:02 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/30 23:41:31 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/10/06 13:55:33 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 #include <sstream>
@@ -34,4 +37,5 @@ public:
 	std::string getNoEmptyInput(const std::string& prompt);
 };
 
+#endif
 

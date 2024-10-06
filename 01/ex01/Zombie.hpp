@@ -6,9 +6,12 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:06:59 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/10/03 14:48:04 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/10/06 14:04:44 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 #include <iostream>
 
@@ -25,3 +28,5 @@ public:
 };
 
 Zombie* zombieHorde(int nb, std::string name);
+
+#endif

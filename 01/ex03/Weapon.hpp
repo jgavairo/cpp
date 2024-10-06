@@ -6,11 +6,11 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 15:43:01 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/10/03 16:32:22 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/10/06 15:06:40 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WAEPON_HPP
+#ifndef WEAPON_HPP
 # define WEAPON_HPP
 
 #include <iostream>

@@ -1,12 +1,26 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/03 16:25:08 by jgavairo          #+#    #+#              #
-#    Updated: 2024/10/03 16:25:09 by jgavairo         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME = weapon
 
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
+
+SRCS = HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+DEPS = $(OBJS:.o=.d)
+
+all: $(NAME)
+
+-include $(DEPS)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+
+clean:
+	rm -f $(OBJS) $(DEPS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

@@ -1,37 +1,26 @@
-# Nom de l'exécutable
-NAME = zombie
+NAME = brainz
 
-# Compilateur et options de compilation
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
 
-# Fichiers sources
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
 
-# Fichiers objets
 OBJS = $(SRCS:.cpp=.o)
+DEPS = $(OBJS:.o=.d)
 
-# Règle par défaut pour compiler l'exécutable
 all: $(NAME)
 
-# Règle pour créer l'exécutable
+-include $(DEPS)
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-# Règle pour compiler les fichiers objets
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Commande pour nettoyer les fichiers objets
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(DEPS)
 
-# Commande pour nettoyer les fichiers objets et l'exécutable
 fclean: clean
 	rm -f $(NAME)
 
-# Commande pour recompiler tout le projet
 re: fclean all
 
-# Indiquer que clean, fclean, et re ne sont pas des fichiers
 .PHONY: all clean fclean re

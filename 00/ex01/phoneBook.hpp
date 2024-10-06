@@ -6,9 +6,12 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:58:23 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/30 23:44:58 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/10/06 13:56:11 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 #include "contact.hpp"
 
@@ -26,3 +29,5 @@ class PhoneBook
 		void	searchContact();
 		int		detailContact();
 };
+
+#endif
