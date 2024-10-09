@@ -6,7 +6,7 @@
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:59:26 by jgavairo          #+#    #+#             */
-/*   Updated: 2024/09/30 23:58:48 by jgavairo         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:51:47 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,19 @@ Contact::Contact()
 
 }
 
-std::string getNoEmptyInput(const std::string& prompt)
+bool Contact::isPrintable(std::string& input)
+{
+	size_t i = 0;
+	while (i < input.length())
+	{
+		if (!std::isprint(input[i]))
+			return false;
+		i++;
+	}
+	return true;
+}
+
+std::string Contact::getNoEmptyInput(const std::string& prompt)
 {
 	std::string input;
 		
@@ -27,7 +39,7 @@ std::string getNoEmptyInput(const std::string& prompt)
 		getline(std::cin, input);
 		if (std::cin.eof())
 			return ("");
-		if (input.empty())
+		if (input.empty() || !isPrintable(input))
 		{
 			std::cout << "Error, empty value. Please retry !" << std::endl;
 			continue ;
@@ -39,23 +51,21 @@ std::string getNoEmptyInput(const std::string& prompt)
 }
 
 int Contact::setInfo(int i)
-{
-	std::string getNoEmptyInput(const std::string& prompt);
-		
+{		
 	index = i;
-	firstName = getNoEmptyInput("First name : ");
+	firstName = Contact::getNoEmptyInput("First name : ");
 	if (firstName.empty())
 		return (-1);
-	lastName = getNoEmptyInput("Last name : ");
+	lastName = Contact::getNoEmptyInput("Last name : ");
 	if (lastName.empty())
 		return (-1);
-	nickName = getNoEmptyInput("Nickname : ");
+	nickName = Contact::getNoEmptyInput("Nickname : ");
 	if (nickName.empty())
 		return (-1);
-	phoneNumber = getNoEmptyInput("Phone number : ");
+	phoneNumber = Contact::getNoEmptyInput("Phone number : ");
 	if (phoneNumber.empty())
 		return (-1);
-	darkestSecret = getNoEmptyInput("The darkest secret : ");
+	darkestSecret = Contact::getNoEmptyInput("The darkest secret : ");
 	if (darkestSecret.empty())
 		return (-1);
 	return (0);
