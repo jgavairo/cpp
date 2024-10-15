@@ -1,4 +1,4 @@
-NAME = sed
+NAME = searchAndReplace
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98

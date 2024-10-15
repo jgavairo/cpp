@@ -1,4 +1,4 @@
-NAME = is_brain
+NAME = isBrain
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
