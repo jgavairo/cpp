@@ -1,9 +1,9 @@
-NAME = ex02
+NAME = scavtrap
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
 
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJDIR = obj
 DEPDIR = dep

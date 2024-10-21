@@ -6,6 +6,7 @@ ClapTrap::ClapTrap()
     _healthPoints = 10;
     _energyPoints = 10;
     _attackDamage = 0;
+    std::cout << "ClapTrap is created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name)
@@ -14,6 +15,7 @@ ClapTrap::ClapTrap(const std::string& name)
     _healthPoints = 10;
     _energyPoints = 10;
     _attackDamage = 0;
+    std::cout << "ClapTrap is created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -74,8 +76,10 @@ void ClapTrap::takeDamage(unsigned int amount)
         {
             this->_energyPoints -= 1;
             this->_healthPoints -= amount;
-            std::cout << _name << " lose " << amount << " hp" << std::endl << "Now he has " << _healthPoints << " hp left" << std::endl;
             if (this->_healthPoints <= 0)
+                this->_healthPoints = 0;
+            std::cout << _name << " lose " << amount << " hp" << std::endl << "Now he has " << _healthPoints << " hp left" << std::endl;
+            if (this->_healthPoints == 0)
                 std::cout << _name << " is died" << std::endl;
         }
         else
@@ -97,4 +101,5 @@ int ClapTrap::getDamage() const
 
 ClapTrap::~ClapTrap()
 {
+    std::cout << "ClapTrap is destroyed" << std::endl;
 }

@@ -1,4 +1,8 @@
-#include<iostream>
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
+
+#include <iostream>
+#include <string>
 
 class ClapTrap
 {
@@ -8,10 +12,19 @@ private:
     int         _energyPoints;
     int         _attackDamage;
 public:
-    ClapTrap();
-    ClapTrap(std::string name);
-    void attack(const std::string& target);
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
-    ~ClapTrap();
+    ClapTrap(); //Constructeur par defaut
+    ClapTrap(const std::string& name); //Constructeur par string
+    ClapTrap(const ClapTrap& other); //Constructeur de copie
+
+    ClapTrap& operator=(const ClapTrap& other); //Operateur de copie
+
+    void attack(const std::string& target); //Fonction d'attaque
+    void takeDamage(unsigned int amount); //Fonction prendre degats
+    void beRepaired(unsigned int amount); //Fonction heal
+
+    std::string getName() const; //Getter de nom
+    int         getDamage() const; //Getter de damage
+    ~ClapTrap(); //Destructeur
 };
+
+#endif
