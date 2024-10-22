@@ -6,6 +6,7 @@ ClapTrap::ClapTrap()
     _healthPoints = 10;
     _energyPoints = 10;
     _attackDamage = 0;
+    std::cout << "ClapTrap is created with basic.✅" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string& name)
@@ -14,11 +15,13 @@ ClapTrap::ClapTrap(const std::string& name)
     _healthPoints = 10;
     _energyPoints = 10;
     _attackDamage = 0;
+    std::cout << "ClapTrap is created.✅" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
     *this = other;
+    std::cout << "ClapTrap copy constructor called.✅" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
@@ -29,6 +32,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
         this->_attackDamage = other._attackDamage;
         this->_energyPoints = other._energyPoints;
         this->_healthPoints = other._healthPoints;
+        std::cout << "Claptrap copy operator called.✅" << std::endl;
     }
     return (*this);
 }
@@ -40,16 +44,16 @@ void ClapTrap::attack(const std::string& target)
         if (this->_energyPoints > 0)
         {
             this->_energyPoints -= 1;
-            std::cout << _name << " attack " << target << " and " << target << " lose " << _attackDamage << " hp" << std::endl;
+            std::cout << "[💥] " << _name << " attack " << target << " and " << target << " lose " << _attackDamage << " hp" << std::endl;
         }
         else
-            std::cout << "Sorry, the ClapTrap " << _name << " has no energy." << std::endl;
+            std::cout << "[🔋] Sorry, the ClapTrap " << _name << " has no energy." << std::endl;
     }
     else 
-        std::cout << "Hum.. sorry, the ClapTrap " << _name << " is dead.." << std::endl;
+        std::cout << "[💀] Hum.. sorry, the ClapTrap " << _name << " is dead.." << std::endl;
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
+void ClapTrap::beRepaired(const unsigned int amount)
 {
     if (this->_healthPoints > 0)
     {
@@ -57,16 +61,16 @@ void ClapTrap::beRepaired(unsigned int amount)
         {
             this->_energyPoints -= 1;
             this->_healthPoints += amount;
-            std::cout << _name << " to recover " << amount << " hp" << std::endl;
+            std::cout << "[🏥] " << _name << " to recover " << amount << " hp" << std::endl << "[❤️ ] Now he has " << _healthPoints << " hp left" << std::endl;;
         }
         else
-            std::cout << "Sorry, the ClapTrap " << _name << " has no energy." << std::endl;
+            std::cout << "[🔋] Sorry, the ClapTrap " << _name << " has no energy." << std::endl;
     }
     else 
-        std::cout << "Hum.. sorry, the ClapTrap " << _name << " is dead.." << std::endl;
+        std::cout << "[💀] Hum.. sorry, the ClapTrap " << _name << " is dead.." << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
+void ClapTrap::takeDamage(const unsigned int amount)
 {
     if (this->_healthPoints > 0)
     {
@@ -74,15 +78,17 @@ void ClapTrap::takeDamage(unsigned int amount)
         {
             this->_energyPoints -= 1;
             this->_healthPoints -= amount;
-            std::cout << _name << " lose " << amount << " hp" << std::endl << "Now he has " << _healthPoints << " hp left" << std::endl;
             if (this->_healthPoints <= 0)
-                std::cout << _name << " is died" << std::endl;
+                this->_healthPoints = 0;
+            std::cout << "[🎯] " << _name << " lose " << amount << " hp" << std::endl << "[❤️ ] Now he has " << _healthPoints << " hp left" << std::endl;
+            if (this->_healthPoints == 0)
+                std::cout << "[💀] " << _name << " is died" << std::endl;
         }
         else
-            std::cout << "Sorry, the ClapTrap " << _name << " has no energy." << std::endl;
+            std::cout << "[🔋] Sorry, the ClapTrap " << _name << " has no energy." << std::endl;
     }
     else 
-        std::cout << "Hum.. sorry, the ClapTrap " << _name << " is dead.." << std::endl;
+        std::cout << "[💀] Hum.. sorry, the ClapTrap " << _name << " is dead.." << std::endl;
 }
 
 std::string ClapTrap::getName() const
@@ -97,4 +103,5 @@ int ClapTrap::getDamage() const
 
 ClapTrap::~ClapTrap()
 {
+    std::cout << "[❌] ClapTrap is destroyed" << std::endl;
 }

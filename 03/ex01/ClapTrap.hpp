@@ -6,25 +6,25 @@
 
 class ClapTrap
 {
-    protected:
-        std::string _name;
-        int         _healthPoints;
-        int         _energyPoints;
-        int         _attackDamage;
-    public:
-        ClapTrap(); //Constructeur par defaut
-        ClapTrap(const std::string& name); //Constructeur par string
-        ClapTrap(const ClapTrap& other); //Constructeur de copie
+protected:
+    std::string _name;
+    int         _healthPoints;
+    int         _energyPoints;
+    int         _attackDamage;
+public:
+    ClapTrap();
+    ClapTrap(const std::string& name);
+    ClapTrap(const ClapTrap& other);
 
-        ClapTrap& operator=(const ClapTrap& other); //Operateur de copie
+    ClapTrap& operator=(const ClapTrap& other);
 
-        virtual void attack(const std::string& target); //Fonction d'attaque
-        void takeDamage(unsigned int amount); //Fonction prendre degats
-        void beRepaired(unsigned int amount); //Fonction heal
+    virtual void attack(const std::string& target);
+    void takeDamage(const unsigned int amount);
+    void beRepaired(const unsigned int amount);
 
-        std::string getName() const; //Getter de nom
-        int         getDamage() const; //Getter de damage
-        ~ClapTrap(); //Destructeur
+    std::string getName() const;
+    int         getDamage() const;
+    ~ClapTrap();
 };
 
 #endif
