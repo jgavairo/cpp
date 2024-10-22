@@ -53,7 +53,7 @@ void ClapTrap::attack(const std::string& target)
         std::cout << "[💀] Hum.. sorry, the ClapTrap " << _name << " is dead.." << std::endl;
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
+void ClapTrap::beRepaired(const unsigned int amount)
 {
     if (this->_healthPoints > 0)
     {
@@ -70,7 +70,7 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "[💀] Hum.. sorry, the ClapTrap " << _name << " is dead.." << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
+void ClapTrap::takeDamage(const unsigned int amount)
 {
     if (this->_healthPoints > 0)
     {
