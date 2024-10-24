@@ -1,4 +1,4 @@
-NAME = Brain
+NAME = AAnimal
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98

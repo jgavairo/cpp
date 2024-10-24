@@ -1,12 +1,13 @@
-NAME = Brain
+NAME = Materia
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+SRCS = src/main.cpp
 
-OBJDIR = obj
-DEPDIR = dep
+TMPDIR = tmp/
+OBJDIR = $(TMPDIR)obj
+DEPDIR = $(TMPDIR)dep
 
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 DEPS = $(addprefix $(DEPDIR)/, $(SRCS:.cpp=.d))
@@ -27,6 +28,7 @@ $(OBJDIR) $(DEPDIR):
 clean:
 	rm -f $(OBJS) $(DEPS)
 	rm -rf $(OBJDIR) $(DEPDIR)
+	rm -rf $(TMPDIR)
 
 fclean: clean
 	rm -f $(NAME)
