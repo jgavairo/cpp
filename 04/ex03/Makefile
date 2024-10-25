@@ -3,7 +3,7 @@ NAME = Materia
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
 
-SRCS = src/main.cpp
+SRCS = src/main.cpp src/Character.cpp src/Ice.cpp src/Cure.cpp src/AMateria.cpp src/MateriaSource.cpp
 
 TMPDIR = tmp/
 OBJDIR = $(TMPDIR)obj

@@ -2,7 +2,7 @@
 # define CURE_HPP
 
 #include "../inc/AMateria.hpp"
-#include "../inc/ICharacter.hpp"
+#include "../inc/Character.hpp"
 
 class Cure : public AMateria
 {
@@ -10,7 +10,7 @@ class Cure : public AMateria
         Cure();
         Cure(Cure& const other);
         virtual AMateria* clone() const;
-        virtual void use(ICharacter& target);
+        virtual void use(Character& target);
 
         virtual ~Cure();
 };

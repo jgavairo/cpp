@@ -11,7 +11,7 @@ private:
     AMateria* _inventory[4];
 public:
     Character();
-    Character(std::string& const name);
+    Character(std::string const name);
     Character(Character& const other);
     Character& operator=(Character& const other);
     std::string& const getName();

@@ -2,7 +2,7 @@
 # define ICE_HPP
 
 #include "../inc/AMateria.hpp"
-#include "../inc/ICharacter.hpp"
+#include "../inc/Character.hpp"
 
 class Ice : public AMateria
 {
@@ -10,7 +10,7 @@ class Ice : public AMateria
         Ice();
         Ice(Ice& const other);
         virtual AMateria* clone() const;
-        virtual void use(ICharacter& target);
+        virtual void use(Character& target);
 
         virtual ~Ice();
 };
