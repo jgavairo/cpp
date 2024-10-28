@@ -8,9 +8,9 @@ class Ice : public AMateria
 {
     public:
         Ice();
-        Ice(Ice& const other);
+        Ice(const Ice& other);
         virtual AMateria* clone() const;
-        virtual void use(Character& target);
+        virtual void use(ICharacter& target);
 
         virtual ~Ice();
 };

@@ -1,8 +1,8 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-#include "../inc/AMateria.hpp"
-#include "../inc/ICharacter.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 class Character : public ICharacter
 {
@@ -12,13 +12,13 @@ private:
 public:
     Character();
     Character(std::string const name);
-    Character(Character& const other);
-    Character& operator=(Character& const other);
-    std::string& const getName();
+    Character(const Character& other);
+    Character& operator=(const Character& other);
+    const std::string& getName();
     void equip(AMateria* m);
     void unequip(int i);
-    void use(int i, Character& target);
-    virtual ~Character();
+    void use(int i, ICharacter& target);
+    ~Character();
 };
 
 #endif

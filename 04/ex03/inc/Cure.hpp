@@ -8,9 +8,9 @@ class Cure : public AMateria
 {
     public:
         Cure();
-        Cure(Cure& const other);
+        Cure(const Cure& other);
         virtual AMateria* clone() const;
-        virtual void use(Character& target);
+        virtual void use(ICharacter& target);
 
         virtual ~Cure();
 };

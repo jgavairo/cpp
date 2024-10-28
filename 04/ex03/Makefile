@@ -1,16 +1,17 @@
 NAME = Materia
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98 -I inc
 
-SRCS = src/main.cpp src/Character.cpp src/Ice.cpp src/Cure.cpp src/AMateria.cpp src/MateriaSource.cpp
+SRCDIR = src
+INCDIR = inc
+OBJDIR = objects
+DEPDIR = dependances
 
-TMPDIR = tmp/
-OBJDIR = $(TMPDIR)obj
-DEPDIR = $(TMPDIR)dep
-
-OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
-DEPS = $(addprefix $(DEPDIR)/, $(SRCS:.cpp=.d))
+SRCS = $(SRCDIR)/main.cpp $(SRCDIR)/Character.cpp $(SRCDIR)/Ice.cpp \
+       $(SRCDIR)/Cure.cpp $(SRCDIR)/AMateria.cpp $(SRCDIR)/MateriaSource.cpp
+OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
+DEPS = $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.cpp=.d)))
 
 all: $(NAME)
 
@@ -19,7 +20,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-$(OBJDIR)/%.o: %.cpp | $(OBJDIR) $(DEPDIR)
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR) $(DEPDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@ -MMD -MF $(DEPDIR)/$*.d
 
 $(OBJDIR) $(DEPDIR):
@@ -27,8 +28,6 @@ $(OBJDIR) $(DEPDIR):
 
 clean:
 	rm -f $(OBJS) $(DEPS)
-	rm -rf $(OBJDIR) $(DEPDIR)
-	rm -rf $(TMPDIR)
 
 fclean: clean
 	rm -f $(NAME)
