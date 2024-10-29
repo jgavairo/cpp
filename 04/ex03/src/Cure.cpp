@@ -25,5 +25,5 @@ void Cure::use(ICharacter& target)
 
 Cure::~Cure()
 {
-
+    std::cout << "Destructor of \033[35mCure\033[0m is called." << std::endl;
 }

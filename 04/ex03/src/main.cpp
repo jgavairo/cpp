@@ -17,27 +17,40 @@ int main()
 
     tmp = src->createMateria("Ice");
     me->equip(tmp);
+    delete tmp;
+
 
     Character bob("bob");
 
     me->use(0, bob);
 
-    // tmp->~AMateria();
     tmp = src->createMateria("Cure");
-    // bob.equip(tmp);
-    // tmp = src->createMateria("Cure");
-    // bob.equip(tmp);
-    // tmp = src->createMateria("Cure");
-    // bob.equip(tmp);
-    // tmp = src->createMateria("Cure");
-    // bob.equip(tmp);
-
-
-    bob.unequip(2);
+    bob.equip(tmp);
+    delete tmp;
+    tmp = src->createMateria("Cure");
+    bob.equip(tmp);
+    delete tmp;
+    tmp = src->createMateria("Cure");
+    bob.equip(tmp);
+    delete tmp;
+    tmp = src->createMateria("Cure");
+    bob.equip(tmp);
+    delete tmp;
 
     tmp = src->createMateria("Ice");
     bob.equip(tmp);
     bob.use(0, bob);
+    delete tmp;
+
+    bob.unequip(2);
+    
+    tmp = src->createMateria("Ice");
+    bob.equip(tmp);
+    delete tmp;
+
+    Character rayane = bob;
+
+    rayane.use(1, bob);
 
     delete me;
     delete src;
