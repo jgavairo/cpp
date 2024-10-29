@@ -1,4 +1,4 @@
-#include "../inc/Ice.hpp"
+#include "Ice.hpp"
 
 Ice::Ice() : AMateria("Ice")
 {

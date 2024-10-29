@@ -1,7 +1,7 @@
-#include "../inc/Character.hpp"
-#include "../inc/Ice.hpp"
-#include "../inc/Cure.hpp"
-#include "../inc/MateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "MateriaSource.hpp"
 #include <iostream>
 
 int main() 
@@ -17,8 +17,6 @@ int main()
 
     tmp = src->createMateria("Ice");
     me->equip(tmp);
-    delete tmp;
-
 
     Character bob("bob");
 
@@ -26,31 +24,34 @@ int main()
 
     tmp = src->createMateria("Cure");
     bob.equip(tmp);
-    delete tmp;
+
     tmp = src->createMateria("Cure");
     bob.equip(tmp);
-    delete tmp;
+
     tmp = src->createMateria("Cure");
     bob.equip(tmp);
-    delete tmp;
+    AMateria* tt = tmp;
+
     tmp = src->createMateria("Cure");
     bob.equip(tmp);
-    delete tmp;
+
 
     tmp = src->createMateria("Ice");
     bob.equip(tmp);
-    bob.use(0, bob);
     delete tmp;
+
+    bob.use(0, bob);
+
 
     bob.unequip(2);
-    
+    delete tt;
+
     tmp = src->createMateria("Ice");
     bob.equip(tmp);
-    delete tmp;
 
     Character rayane = bob;
 
-    rayane.use(1, bob);
+    rayane.use(1, *me);
 
     delete me;
     delete src;

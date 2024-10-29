@@ -1,8 +1,6 @@
-objects/AMateria.o: src/AMateria.cpp src/../inc/AMateria.hpp \
-  inc/../inc/ICharacter.hpp inc/AMateria.hpp
-
-src/../inc/AMateria.hpp:
-
-inc/../inc/ICharacter.hpp:
+objects/AMateria.o: src/AMateria.cpp inc/AMateria.hpp \
+  inc/../inc/ICharacter.hpp
 
 inc/AMateria.hpp:
+
+inc/../inc/ICharacter.hpp:
