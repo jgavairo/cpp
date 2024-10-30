@@ -18,6 +18,12 @@ AMateria* Cure::clone() const
     return a;
 }
 
+Cure& Cure::operator=(const Cure& other)
+{
+    this->_type = other._type;
+    return *this;
+}
+
 void Cure::use(ICharacter& target)
 {
     std::cout << "\033[35m*\033[0m heals " << target.getName() << "'s wounds \033[35m*\033[0m" << std::endl;

@@ -8,10 +8,14 @@ private:
     AMateria* _materias[4];
 public:
     MateriaSource();
-    virtual ~MateriaSource();
+    MateriaSource(MateriaSource& other);
+
+    MateriaSource& operator=(MateriaSource& other);
 
     void learnMateria(AMateria* m);
     AMateria* createMateria(std::string const & type);
+
+    ~MateriaSource();
 };
 
 #endif

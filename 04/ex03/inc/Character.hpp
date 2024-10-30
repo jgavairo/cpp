@@ -13,11 +13,14 @@ public:
     Character();
     Character(std::string const name);
     Character(const Character& other);
+
     Character& operator=(const Character& other);
+
     const std::string& getName();
     void equip(AMateria* m);
     void unequip(int i);
     void use(int i, ICharacter& target);
+    
     ~Character();
 };
 

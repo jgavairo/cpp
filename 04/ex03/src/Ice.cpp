@@ -18,6 +18,12 @@ AMateria* Ice::clone() const
     return a;
 }
 
+Ice& Ice::operator=(const Ice& other)
+{
+    this->_type = other._type;
+    return *this;
+}
+
 void Ice::use(ICharacter& target)
 {
     std::cout << "\033[36m*\033[0m shoots an ice bolt at " << target.getName() << " \033[36m*\033[0m" << std::endl;

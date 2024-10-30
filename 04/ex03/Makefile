@@ -28,6 +28,7 @@ $(OBJDIR) $(DEPDIR):
 
 clean:
 	rm -f $(OBJS) $(DEPS)
+	rm -f $(SRCDIR) $(INCDIR)
 
 fclean: clean
 	rm -f $(NAME)
