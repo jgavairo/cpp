@@ -6,7 +6,7 @@
 
 class Dog : public Animal
 {
-    protected:
+    private:
         std::string type;
     public:
         Dog();

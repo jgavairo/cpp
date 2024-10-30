@@ -7,7 +7,7 @@
 
 class Dog : public Animal
 {
-    protected:
+    private:
         std::string type;
         Brain* brain; 
     public:

@@ -28,7 +28,7 @@ std::string Dog::getIdea(const int i)
 {
     if (i >= 0 && i < 100)
         return this->brain->ideas[i];
-    return NULL ;
+    return "" ;
 }
 
 void Dog::setIdea(const std::string idea, const int i)
