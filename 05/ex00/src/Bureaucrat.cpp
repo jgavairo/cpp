@@ -7,10 +7,10 @@ Bureaucrat::Bureaucrat() : _name("Unedefined"), _grade(0)
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-    if (grade < 1)
-        throw GradetooHighExecption();
-    if (grade > 150)
-        throw std::invalid_argument("Too lowest grade.");
+    if (_grade > 150)
+        throw ToolowestException();
+    else if (_grade < 1)
+        throw TooHighestException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
@@ -20,7 +20,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-    _grade = other._grade;
+    if (this != &other)
+        _grade = other._grade;
     return *this;
 }
 

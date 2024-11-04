@@ -19,16 +19,25 @@ public:
     std::string   getName() const;
     int           getGrade() const;
 
-    ~Bureaucrat();
-    
-    class GradetooHighExecption: public std::exception
+    class TooHighestException : public std::exception
     {
         public:
-            virtual const char* what() throw()
+            const char* what() const throw()
             {
                 return "Too highest grade.";
             }
     };
+
+    class ToolowestException : public std::exception
+    {
+        public:
+            const char* what() const throw()
+            {
+                return "Too lowest grade.";
+            }
+    };
+
+    ~Bureaucrat();
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
