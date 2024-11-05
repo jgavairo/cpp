@@ -42,6 +42,17 @@ int Bureaucrat::getGrade() const
     return _grade;
 }
 
+void Bureaucrat::signForm(Form& form)
+{
+    if (form.getState() == true)
+    {
+        std::cout << "The form " << form.getName() << " is already signed." << std::endl;
+        return ;
+    }
+    form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
+}
+
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "Destructor of bureaucrat called." << std::endl;
