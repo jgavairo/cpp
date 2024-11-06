@@ -64,17 +64,16 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
         throw GradeTooLowException();
 }
 
-void AForm::execute(Bureaucrat& bureaucrat)
+void AForm::execute(Bureaucrat const & bureaucrat)
 {
-    if (bureaucrat.getGrade() <= _forExecute)
-    {
-        this->performAction();
-    }
-    else 
+    if (!_isSigned)
+        throw AForm::FormNotSignedException();
+    if (bureaucrat.getGrade() > _forExecute)
         throw GradeTooLowException();
+    this->performAction();
 }
 
 AForm::~AForm()
 {
-    std::cout << "Destructor called." << std::endl;
+    std::cout << "Destructor of " << _name << " called." << std::endl;
 }

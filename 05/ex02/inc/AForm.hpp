@@ -15,6 +15,7 @@ class AForm
         const int _forExecute;
         bool _isSigned;
         const std::string _target;
+        virtual void performAction() const = 0;
     public:
         AForm();
         AForm(std::string name, int gradeForSign, int gradeForExecute);
@@ -30,15 +31,14 @@ class AForm
         bool getState();
 
         void beSigned(const Bureaucrat& bureaucrat);
-        void execute(Bureaucrat& bureaucrat);
-        virtual void performAction() const = 0;
+        void execute(Bureaucrat const & bureaucrat);
 
         class GradeTooHighException : public std::exception
         {
             public:
                 const char* what() const throw()
                 {
-                    return "Too highest grade.";
+                    return "too highest grade.";
                 }
         };
 
@@ -47,7 +47,16 @@ class AForm
             public:
                 const char* what() const throw()
                 {
-                    return "Too lowest grade.";   
+                    return "too lowest grade.";   
+                }
+        };
+
+        class FormNotSignedException : public std::exception
+        {
+            public:
+                const char* what() const throw()
+                {
+                    return "the form is not signed.";   
                 }
         };
         

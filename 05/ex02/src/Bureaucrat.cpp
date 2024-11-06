@@ -44,7 +44,7 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::signForm(AForm& form)
 {
-    if (form.getState() == true)
+    if (form.getState())
     {
         std::cout << "The form " << form.getName() << " is already signed." << std::endl;
         return ;
@@ -72,7 +72,6 @@ void Bureaucrat::executeForm(AForm& form)
     {
         std::cout << _name << " couldn’t execute " << form.getName() << " because " << e.what() << std::endl;
     }
-    
 }
 
 Bureaucrat::~Bureaucrat()

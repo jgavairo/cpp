@@ -8,8 +8,8 @@ INCDIR = inc
 OBJDIR = objects
 DEPDIR = dependances
 
-SRCS = 	$(SRCDIR)/main.cpp $(SRCDIR)/Bureaucrat.cpp $(SRCDIR)/AForm.cpp \
-		$(SRCDIR)/ShrubberyCreationForm.cpp
+SRCS = 	$(SRCDIR)/main.cpp $(SRCDIR)/Bureaucrat.cpp $(SRCDIR)/AForm.cpp $(SRCDIR)/RobotomyRequestForm.cpp \
+		$(SRCDIR)/ShrubberyCreationForm.cpp $(SRCDIR)/PresidentialPardonForm.cpp
 OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
 DEPS = $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.cpp=.d)))
 
