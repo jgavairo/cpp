@@ -148,4 +148,16 @@ int main()
     }
     std::cout << std::endl;
     std::cout << std::endl;
+
+    std::cout << "--Test operator<< for form--" << std::endl;
+    Form TT("Formulaire ADM", 149, 149);
+    std::cout << std::endl << TT << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "--Test operator<< for bureaucrat--" << std::endl;
+    Bureaucrat tot("Bobby le bureaucrat", 74);
+    std::cout << std::endl << tot << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
 }

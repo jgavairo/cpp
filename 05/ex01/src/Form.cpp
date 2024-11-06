@@ -59,6 +59,15 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
         throw GradeTooLowException();
 }
 
+std::ostream& operator<<(std::ostream& os, Form& form) 
+{
+    os << "Form " << form.getName() << std::endl
+       << "-signed: " << (form.getState() ? "yes" : "no") << std::endl
+       << "-grade required to sign: " << form.getForSign() << std::endl
+       << "-grade required to execute: " << form.getForExecute() << std::endl;
+    return os;
+}
+
 Form::~Form()
 {
     std::cout << "Destructor called." << std::endl;
