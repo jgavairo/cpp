@@ -13,8 +13,8 @@ class ScalarConverter
         static bool isDouble(const std::string& input);
 
         static void convertFromChar(char c);
-        static void convertFromInt(int value);
-        static void convertFromFloat(float value);
+        static void convertFromInt(double value);
+        static void convertFromFloat(double value);
         static void convertFromDouble(double value);
     public:
         static void convert(const std::string& literal);

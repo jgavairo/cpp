@@ -4,7 +4,10 @@
 #include <limits>
 #include <cmath>
 #include <cctype>
+#include <float.h>
 
+#define INT_MIN -2147483648.0
+#define INT_MAX 2147483647.0
 
 bool ScalarConverter::isChar(const std::string& literal)
 {
@@ -107,27 +110,17 @@ bool ScalarConverter::isDouble(const std::string& literal)
     return d;
 }
 
-int stringToInt(const std::string& str)
-{
-    std::istringstream iss(str);
-    int value;
-    iss >> value;
-    if (iss.fail() || !iss.eof())
-        throw std::runtime_error("Conversion to int failed.");
-    return value;
-}
-
 float stringToFloat(const std::string& str)
 {
     if (str == "nanf")
-        return std::numeric_limits<float>::quiet_NaN();
+        return std::numeric_limits<double>::quiet_NaN();
     if (str == "+inff")
-        return std::numeric_limits<float>::infinity();
+        return std::numeric_limits<double>::infinity();
     if (str == "-inff")
-        return -std::numeric_limits<float>::infinity();
+        return -std::numeric_limits<double>::infinity();
 
     std::istringstream iss(str.substr(0, str.length() - 1));
-    float value;
+    double value;
     iss >> value;
     if (iss.fail() || !iss.eof())
         throw std::runtime_error("Conversion to float failed.");
@@ -155,22 +148,37 @@ void ScalarConverter::convertFromChar(char c)
 {
     std::cout << "char: '" << c << "'" << std::endl;
     std::cout << "int: " << static_cast<int>(c) << std::endl;
-    std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-    std::cout << "double: " << static_cast<double>(c) << std::endl;
+    std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(c) << ".0f" << std::endl;
 }
 
-void ScalarConverter::convertFromInt(int value)
+void ScalarConverter::convertFromInt(double value)
 {
     if (value >= 32 && value <= 126)
         std::cout << "Char: '" << static_cast<char>(value) << "'" << std::endl;
     else 
         std::cout << "Char: Impossible" << std::endl;
-    std::cout << "Int: " << value << std::endl;
-    std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
-    std::cout << "Double: " << static_cast<double>(value) << ".0" << std::endl;
+
+
+    if (value >= INT_MIN && value <= INT_MAX)
+        std::cout << "Int: " << static_cast<int>(value) << std::endl;
+    else
+        std::cout << "Int: Impossible" << std::endl;
+
+
+    if (value >= FLT_MIN && value <= FLT_MAX)
+        std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
+    else
+        std::cout << "Float: Impossible" << std::endl;
+    
+
+    if (value >= DBL_MIN && value <= DBL_MAX)
+        std::cout << "Double: " << value << ".0" << std::endl;
+    else
+        std::cout << "Double: Impossible" << std::endl;
 }
 
-void ScalarConverter::convertFromFloat(float value)
+void ScalarConverter::convertFromFloat(double value)
 {
     if (std::isnan(value) || std::isinf(value))
     {
@@ -179,14 +187,25 @@ void ScalarConverter::convertFromFloat(float value)
     }
     else
     {
-        if (value >= 32 && value <+ 126)
+        if (value >= 32 && value <= 126)
             std::cout << "Char: '" << static_cast<char>(value) << "'" << std::endl;
         else 
             std::cout << "Char: Impossible" << std::endl;
-        std::cout << "Int: " << static_cast<int>(value) << std::endl;
+        if (value >= INT_MIN && value <= INT_MAX)
+            std::cout << "Int: " << static_cast<int>(value) << std::endl;
+        else
+            std::cout << "Int: Impossible" << std::endl;
     }
-    std::cout << "Float: " << value << "f" << std::endl;
-    std::cout << "Double: " << static_cast<double>(value) << std::endl;
+    if (value >= FLT_MIN && value <= FLT_MAX)
+        std::cout << "Float: " << static_cast<float>(value) << std::endl;
+    else
+        std::cout << "Float: Impossible" << std::endl;
+    
+
+    if (value >= DBL_MIN && value <= DBL_MAX)
+        std::cout << "Double: " << value << std::endl;
+    else
+        std::cout << "Double: Impossible" << std::endl;
 }
 
 void ScalarConverter::convertFromDouble(double value)
@@ -213,7 +232,7 @@ void ScalarConverter::convert(const std::string& literal)
     if (isChar(literal))
         ScalarConverter::convertFromChar(literal[1]);
     else if (isInt(literal))
-        ScalarConverter::convertFromInt(stringToInt(literal));
+        ScalarConverter::convertFromInt(stringToDouble(literal));
     else if (isFloat(literal))
         ScalarConverter::convertFromFloat(stringToFloat(literal));
     else if (isDouble(literal))
