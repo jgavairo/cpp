@@ -8,7 +8,7 @@ INCDIR = inc
 OBJDIR = objects
 DEPDIR = dependances
 
-SRCS = 	$(SRCDIR)/ScalarConverter.cpp $(SRCDIR)/main.cpp 
+SRCS = 	$(SRCDIR)/ScalarConverter.cpp $(SRCDIR)/main.cpp $(SRCDIR)/checker.cpp $(SRCDIR)/utils.cpp 
 OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
 DEPS = $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.cpp=.d)))
 
