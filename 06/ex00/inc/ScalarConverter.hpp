@@ -2,6 +2,8 @@
 # define SCALARCONVERT_HPP
 
 #include <iostream>
+#include <cstdlib>
+#include <float.h>
 
 #define INT_MIN -2147483648.0
 #define INT_MAX 2147483647.0

@@ -1,12 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <iostream>
-#include <sstream>
-#include <limits>
-#include <cstdlib>
-#include <cmath>
-#include <cctype>
-#include <float.h>
-
 
 float stringToFloat(const std::string& str)
 {
