@@ -58,13 +58,23 @@ void ScalarConverter::printFromInt(double value)
 
 
     if (value >= FLT_MIN && value <= FLT_MAX)
-        std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
+    {
+        if (!isScientific(value))
+            std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
+        else
+            std::cout << "Float: " << static_cast<float>(value) << "f" << std::endl;
+    }
     else
         std::cout << "Float: Impossible" << std::endl;
     
 
     if (value >= DBL_MIN && value <= DBL_MAX)
-        std::cout << "Double: " << value << ".0" << std::endl;
+    {
+        if (!isScientific(value))
+            std::cout << "Double: " << value << ".0" << std::endl;
+        else
+            std::cout << "Double: " << value << std::endl;
+    }
     else
         std::cout << "Double: Impossible" << std::endl;
 }
@@ -110,23 +120,23 @@ void ScalarConverter::printFromDecimal(double value)
             std::cout << "Int: Impossible" << std::endl;
 
 
-        if (value >= -FLT_MAX && value <= FLT_MAX)
+        if (value >= FLT_MIN && value <= FLT_MAX)
         {
-            if (value == static_cast<int>(value))
-                std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
+            if (isScientific(value) && value != static_cast<long long int>(value))
+                std::cout << "Float: " << static_cast<float>(value) << "f" << std::endl;
             else
-                std::cout << "Float: " << static_cast<float>(value) << 'f' << std::endl;
+                std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
         }
         else
             std::cout << "Float: Impossible" << std::endl;
         
 
-        if (value >= -DBL_MAX && value <= DBL_MAX)
+        if (value >= DBL_MIN && value <= DBL_MAX)
         {
-            if (value == static_cast<int>(value))
-                std::cout << "Double: " << value << ".0" << std::endl;
-            else
+            if (isScientific(value) && value != static_cast<long long int>(value))
                 std::cout << "Double: " << value << std::endl;
+            else
+                std::cout << "Double: " << value << ".0" << std::endl;
         }
         else
             std::cout << "Double: Impossible" << std::endl;

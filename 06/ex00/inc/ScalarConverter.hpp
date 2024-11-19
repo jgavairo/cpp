@@ -28,6 +28,7 @@ bool    is_Nan(double value);
 size_t  stdlen(std::string str);
 bool    is_Printable(char c);
 bool    is_Digit(char c);
+bool    isScientific(double value);
 
 
 #endif

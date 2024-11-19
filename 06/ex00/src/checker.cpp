@@ -1,5 +1,18 @@
 #include "ScalarConverter.hpp"
 
+bool isScientific(double value)
+{
+    if (value == 0.0)
+        return true;
+
+    double absolute = (value < 0) ? -value : value;
+    
+    if (absolute >= 1e6 || absolute < 1e-6)
+        return true;
+    
+    return false;
+}
+
 bool is_Nan(double value)
 {
     return (value != value);
