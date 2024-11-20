@@ -12,28 +12,28 @@ int main()
     Base* c = new C();
 
     std::cout << "call identify(a): " << std::ends;
-    identify(a);  // Affichera "A"
+    identify(a);
     std::cout << std::endl;
 
     std::cout << "call identify(b): " << std::ends;
-    identify(b);  // Affichera "B"
+    identify(b);
     std::cout << std::endl;
 
     std::cout << "call identify(c): " << std::ends;
-    identify(c);  // Affichera "C"
+    identify(c);
     std::cout << std::endl;
 
 
     std::cout << "call identify(*a): " << std::ends;
-    identify(*a);  // Affichera "A"
+    identify(*a);
     std::cout << std::endl;
 
     std::cout << "call identify(*a): " << std::ends;
-    identify(*b);  // Affichera "B"
+    identify(*b);
     std::cout << std::endl;
 
     std::cout << "call identify(*a): " << std::ends;
-    identify(*c);  // Affichera "C"
+    identify(*c);
     std::cout << std::endl;
     
 
