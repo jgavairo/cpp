@@ -40,7 +40,7 @@ void ScalarConverter::printFromChar(char c)
 
 void ScalarConverter::printFromInt(double value)
 {
-    if (value <= 127)
+    if (value <= 127 && value >= 0)
     {
         if (value < 32 || value == 127)
             std::cout << "Char: non displayable" << std::endl;
@@ -57,9 +57,9 @@ void ScalarConverter::printFromInt(double value)
         std::cout << "Int: Impossible" << std::endl;
 
 
-    if (value >= FLT_MIN && value <= FLT_MAX)
+    if (value >= -FLT_MAX && value <= FLT_MAX)
     {
-        if (!isScientific(value))
+        if (!isScientific(value) || value == 0)
             std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
         else
             std::cout << "Float: " << static_cast<float>(value) << "f" << std::endl;
@@ -68,9 +68,9 @@ void ScalarConverter::printFromInt(double value)
         std::cout << "Float: Impossible" << std::endl;
     
 
-    if (value >= DBL_MIN && value <= DBL_MAX)
+    if (value > -DBL_MAX && value <= DBL_MAX)
     {
-        if (!isScientific(value))
+        if (!isScientific(value) || value == 0)
             std::cout << "Double: " << value << ".0" << std::endl;
         else
             std::cout << "Double: " << value << std::endl;
@@ -120,9 +120,11 @@ void ScalarConverter::printFromDecimal(double value)
             std::cout << "Int: Impossible" << std::endl;
 
 
-        if (value >= FLT_MIN && value <= FLT_MAX)
+        if (value >= -FLT_MAX && value <= FLT_MAX)
         {
             if (isScientific(value) && value != static_cast<long long int>(value))
+                std::cout << "Float: " << static_cast<float>(value) << "f" << std::endl;
+            else if (value != static_cast<long long int>(value))
                 std::cout << "Float: " << static_cast<float>(value) << "f" << std::endl;
             else
                 std::cout << "Float: " << static_cast<float>(value) << ".0f" << std::endl;
@@ -131,9 +133,11 @@ void ScalarConverter::printFromDecimal(double value)
             std::cout << "Float: Impossible" << std::endl;
         
 
-        if (value >= DBL_MIN && value <= DBL_MAX)
+        if (value >= -DBL_MAX && value <= DBL_MAX)
         {
             if (isScientific(value) && value != static_cast<long long int>(value))
+                std::cout << "Double: " << value << std::endl;
+            else if (value != static_cast<long long int>(value))
                 std::cout << "Double: " << value << std::endl;
             else
                 std::cout << "Double: " << value << ".0" << std::endl;
