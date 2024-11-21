@@ -39,7 +39,7 @@ Array<T>::~Array()
 }
 
 template <typename T>
-T& Array<T>::operator[](unsigned int i)
+T& Array<T>::operator[](unsigned int i) const
 {
     if (i >= _size)
         throw std::out_of_range("index is out of range");

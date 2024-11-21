@@ -1,57 +1,3 @@
-// #include <iostream>
-// #include <Array.hpp>
-
-// #define MAX_VAL 750
-// int main(int, char**)
-// {
-//     Array<int> numbers(MAX_VAL);
-//     int* mirror = new int[MAX_VAL];
-//     srand(time(NULL));
-//     for (int i = 0; i < MAX_VAL; i++)
-//     {
-//         const int value = rand();
-//         numbers[i] = value;
-//         mirror[i] = value;
-//     }
-//     //SCOPE
-//     {
-//         Array<int> tmp = numbers;
-//         Array<int> test(tmp);
-//     }
-
-//     for (int i = 0; i < MAX_VAL; i++)
-//     {
-//         if (mirror[i] != numbers[i])
-//         {
-//             std::cerr << "didn't save the same value!!" << std::endl;
-//             return 1;
-//         }
-//     }
-//     try
-//     {
-//         numbers[-2] = 0;
-//     }
-//     catch(const std::exception& e)
-//     {
-//         std::cerr << e.what() << '\n';
-//     }
-//     try
-//     {
-//         numbers[MAX_VAL] = 0;
-//     }
-//     catch(const std::exception& e)
-//     {
-//         std::cerr << e.what() << '\n';
-//     }
-
-//     for (int i = 0; i < MAX_VAL; i++)
-//     {
-//         numbers[i] = rand();
-//     }
-//     delete [] mirror;//
-//     return 0;
-// }
-
 #include <iostream>
 #include <cstdlib>  // Pour srand et rand
 #include <ctime>    // Pour time
@@ -59,6 +5,62 @@
 #include "Array.hpp"
 
 #define MAX_VAL 10
+
+int tests();
+
+int main(int argc, char** argv)
+{
+    if (argc == 2 && argv[1][0] == 't')
+        return (tests());
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
+}
+
+
 
 // Fonction d'affichage des éléments d'un tableau
 template <typename T>
@@ -69,7 +71,8 @@ void printArray(const Array<T>& array) {
     std::cout << std::endl;
 }
 
-int main() {
+int tests() 
+{
     srand(time(NULL));  // Initialisation du générateur de nombres aléatoires
 
     // 1. Test de la création d'un tableau vide
@@ -135,6 +138,9 @@ int main() {
     std::cout << "Contenu du tableau après modification : ";
     printArray(numbers);
 
+    std::cout << "Contenu du tableau copié au debut: ";
+    printArray(copiedArray);
+
     // 10. Test de destruction du tableau
     std::cout << "\nTest 10: Test de la destruction du tableau" << std::endl;
     // Après la destruction, le tableau `numbers` sera libéré
@@ -146,7 +152,7 @@ int main() {
         for (size_t i = 0; i < tmp.size(); ++i) {
             tmp[i] = rand() % 100;
         }
-        std::cout << "Contenu du tableau tmp (portée limitée) : ";
+        std::cout << "Contenu du tableau tmp : ";
         printArray(tmp);
     } // `tmp` est détruit ici, et la mémoire allouée doit être correctement libérée
 
