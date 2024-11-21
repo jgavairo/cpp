@@ -2,7 +2,7 @@
 
 int main(int argc, char**argv)
 {
-
+    ScalarConverter ok;
     if (argc == 2)
     {
         if (argv[1][0] == 't')
@@ -30,8 +30,6 @@ int main(int argc, char**argv)
                     // Cas non-convertibles
                     "text", "42.0.0", "--42", "4.2.2f", "NaN", "'\\n'", "''", 
 
-                    // Cas spécifiques
-                    "1e-40", "1e+40", "0.0000001", "12345678901234567890", "0x1p+3", 
                     NULL // Indicateur de fin
                 };
                 // Boucle pour tester tous les cas

@@ -12,14 +12,6 @@ class ScalarConverter
 {
     private:
         ScalarConverter();
-        static bool isChar(const std::string& input);
-        static bool isInt(const std::string& input);
-        static bool isFloat(const std::string& input);
-        static bool isDouble(const std::string& input);
-
-        static void printFromChar(char c);
-        static void printFromInt(double value);
-        static void printFromDecimal(double value);
     public:
         static void convert(const std::string& literal);
 };
@@ -29,6 +21,18 @@ size_t  stdlen(std::string str);
 bool    is_Printable(char c);
 bool    is_Digit(char c);
 bool    isScientific(double value);
+
+bool    isChar(const std::string& input);
+bool    isInt(const std::string& input);
+bool    isFloat(const std::string& input);
+bool    isDouble(const std::string& input);
+
+void    printFromChar(char c);
+void    printFromInt(double value);
+void    printFromDecimal(double value);
+
+float   stringToFloat(const std::string& str);
+double  stringToDouble(const std::string& str);
 
 
 #endif
