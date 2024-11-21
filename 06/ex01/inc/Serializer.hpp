@@ -2,7 +2,6 @@
 # define SERIALIZER_HPP
 
 #include "Data.hpp"
-#include <cstdint>
 #include <iostream>
 
 class Serializer
@@ -11,8 +10,8 @@ class Serializer
         Serializer();
         ~Serializer();
     public:
-       static uintptr_t serialize (Data* ptr);
-       static Data* deserialize(uintptr_t raw);
+       static unsigned long int serialize (Data* ptr);
+       static Data* deserialize(unsigned long int raw);
 };
 
 #endif

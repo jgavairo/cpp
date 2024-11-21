@@ -6,7 +6,7 @@ int main()
     Data originalData = {42, "Example", 3.14f};
 
     // Sérialiser le pointeur
-    uintptr_t serialized = Serializer::serialize(&originalData);
+    unsigned long int serialized = Serializer::serialize(&originalData);
 
     // Désérialiser l'entier
     Data* deserialized = Serializer::deserialize(serialized);

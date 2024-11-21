@@ -1,11 +1,11 @@
 #include "Serializer.hpp"
 
-uintptr_t Serializer::serialize(Data* ptr)
+unsigned long int Serializer::serialize(Data* ptr)
 {
-    return reinterpret_cast<uintptr_t>(ptr);
+    return reinterpret_cast<unsigned long int>(ptr);
 }
 
-Data* Serializer::deserialize(uintptr_t raw)
+Data* Serializer::deserialize(unsigned long int raw)
 {
     return reinterpret_cast<Data*>(raw);
 }

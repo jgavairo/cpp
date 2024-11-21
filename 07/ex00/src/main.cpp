@@ -1,7 +1,8 @@
 #include <iostream>
 #include "whatever.hpp"
 
-int main() {
+int main() 
+{
     int a = 2146;
     int b = 3548;
 
@@ -25,6 +26,7 @@ int main() {
     std::cout << "c = " << c << ", d = " << d << std::endl;
     std::cout << "min(c, d) = " << ::min(c, d) << std::endl;
     std::cout << "max(c, d) = " << ::max(c, d) << std::endl;
+  
 
     return 0;
 }
