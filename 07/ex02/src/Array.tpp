@@ -21,7 +21,7 @@ Array<T>::Array(const Array& other) : _array(NULL), _size(0)
 template <typename T>
 Array<T>& Array<T>::operator=(const Array& other)
 {
-    if (!this != &other)
+    if (this != &other)
     {
         delete[] _array;
         _size = other.size();
@@ -41,14 +41,13 @@ Array<T>::~Array()
 template <typename T>
 T& Array<T>::operator[](unsigned int i)
 {
-    if (i >= 0 && i < _size)
-        return _array[i];
-    else 
+    if (i >= _size)
         throw std::out_of_range("index is out of range");
+    return _array[i];
 }
 
 template <typename T>
-unsigned int Array<T>::size()
+unsigned int Array<T>::size() const
 {
     return _size;
 }
