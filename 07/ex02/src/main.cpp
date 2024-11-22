@@ -1,7 +1,7 @@
 #include <iostream>
-#include <cstdlib>  // Pour srand et rand
-#include <ctime>    // Pour time
-#include <exception> // Pour std::out_of_range
+#include <cstdlib>
+#include <ctime>
+#include <exception>
 #include "Array.hpp"
 
 #define MAX_VAL 10
@@ -21,7 +21,6 @@ int main(int argc, char** argv)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);

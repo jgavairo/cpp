@@ -1,4 +1,4 @@
-NAME = Base
+NAME = Span
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98 -I inc
@@ -8,7 +8,7 @@ INCDIR = inc
 OBJDIR = objects
 DEPDIR = dependances
 
-SRCS = 	$(SRCDIR)/Base.cpp $(SRCDIR)/main.cpp $(SRCDIR)/functions.cpp
+SRCS = 	$(SRCDIR)/main.cpp
 OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
 DEPS = $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.cpp=.d)))
 

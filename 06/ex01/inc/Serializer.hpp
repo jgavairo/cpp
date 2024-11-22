@@ -8,7 +8,6 @@ class Serializer
 {
     private:
         Serializer();
-        ~Serializer();
     public:
        static unsigned long int serialize (Data* ptr);
        static Data* deserialize(unsigned long int raw);

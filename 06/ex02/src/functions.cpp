@@ -5,7 +5,6 @@
 
 Base* generate(void)
 {
-    std::srand(static_cast<unsigned int>(std::time(NULL)));
     int randomValue = std::rand() % 3;
 
     switch (randomValue)
@@ -28,18 +27,50 @@ void identify(Base* p)
 {
     if (dynamic_cast<A*>(p))
         std::cout << "A" << std::endl;
-    if (dynamic_cast<B*>(p))
+    else if (dynamic_cast<B*>(p))
         std::cout << "B" << std::endl;
-    if (dynamic_cast<C*>(p))
+    else if (dynamic_cast<C*>(p))
         std::cout << "C" << std::endl;
+    else
+        std::cout << "Type not found." << std::endl;
 }
 
 void identify(Base& p)
 {
-    if (dynamic_cast<A*>(&p))
+    try
+    {
+        A& refA = (dynamic_cast<A&>(p));
+        (void)refA;
         std::cout << "A" << std::endl;
-    if (dynamic_cast<B*>(&p))
+        return ;
+    }
+    catch (...)
+    {
+
+    }
+
+    try
+    {
+        B& refB = (dynamic_cast<B&>(p));
+        (void)refB;
         std::cout << "B" << std::endl;
-    if (dynamic_cast<C*>(&p))
+        return ;
+    }
+    catch (...)
+    {
+
+    }
+
+    try
+    {
+        C& refC = (dynamic_cast<C&>(p));
+        (void)refC;
         std::cout << "C" << std::endl;
+        return ;
+    }
+    catch (...)
+    {
+
+    }
+    std::cout << "Type not found." << std::endl;
 }

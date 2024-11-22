@@ -1,57 +1,50 @@
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#include <iostream>
+#include "Base.hpp" // Votre base et classes A, B, C
 
-int main() 
-{
-    std::cout << "-- Basic tests with A, B and C --" << std::endl << std::endl;;
+int main() {
+    std::srand(static_cast<unsigned int>(std::time(NULL)));
 
-    Base* a = new A();
-    Base* b = new B();
-    Base* c = new C();
+    std::cout << "=== Testing identify(Base*) ===" << std::endl;
 
-    std::cout << "call identify(a): " << std::ends;
-    identify(a);
-    std::cout << std::endl;
+    for (int i = 0; i < 5; ++i) 
+    {
+        Base* randomBase = generate();
+        std::cout << "Generated object: ";
+        identify(randomBase);
+        delete randomBase;
+    }
 
-    std::cout << "call identify(b): " << std::ends;
-    identify(b);
-    std::cout << std::endl;
+    std::cout << "\n=== Testing identify(Base&) ===" << std::endl;
 
-    std::cout << "call identify(c): " << std::ends;
-    identify(c);
-    std::cout << std::endl;
+    for (int i = 0; i < 5; ++i) 
+    {
+        Base* randomBase = generate();
+        try 
+        {
+            std::cout << "Generated object: ";
+            identify(*randomBase);
+        } catch (...) 
+        {
+            std::cout << "Unknown type (exception caught)" << std::endl;
+        }
+        delete randomBase;
+    }
 
+    std::cout << "\n=== Testing failure cases ===" << std::endl;
 
-    std::cout << "call identify(*a): " << std::ends;
-    identify(*a);
-    std::cout << std::endl;
+    Base fakeBase;
+    try 
+    {
+        std::cout << "Testing with Base object: ";
+        identify(fakeBase);
+    } catch (...) 
+    {
+        std::cout << "Unknown type (exception caught)" << std::endl;
+    }
 
-    std::cout << "call identify(*a): " << std::ends;
-    identify(*b);
-    std::cout << std::endl;
-
-    std::cout << "call identify(*a): " << std::ends;
-    identify(*c);
-    std::cout << std::endl;
-    
-
-    delete a;
-    delete b;
-    delete c;
-
-    std::cout << "----------------------" << std::endl << std::endl;
-
-    std::cout << "-- Tests with generate() --" << std::endl << std::endl;
-
-    Base* r = generate();
-
-    std::cout << "call identify(r): " << std::ends;
-    identify(r);
-    std::cout << std::endl;
-
-    delete r;
+    Base* fakePtr = &fakeBase;
+    std::cout << "Testing with Base pointer: ";
+    identify(fakePtr);
 
     return 0;
 }

@@ -2,6 +2,7 @@
 # define BASE_HPP
 
 #include <string>
+#include <exception>
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>

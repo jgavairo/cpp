@@ -39,10 +39,7 @@ bool is_Digit(char c)
 bool isChar(const std::string& literal)
 {
     if (stdlen(literal) == 3 && is_Printable(literal[1]) && literal[0] == '\'' && literal[2] == '\'')
-    {
-        std::cout << "is CHAR\n\n";
         return true;
-    }
     return false;
 }
 
@@ -72,7 +69,6 @@ bool isInt(const std::string& literal)
             return false;
 
     }
-    std::cout << "is INT\n\n";
     return true;
 }
 
@@ -114,8 +110,6 @@ bool isFloat(const std::string& literal)
                 return false;
         }
     }
-    if (d)
-        std::cout << "is FLOAT\n\n";
     return d;
 }
 
@@ -155,9 +149,6 @@ bool isDouble(const std::string& literal)
                 return false;
         }
     }
-
-    if (d)
-        std::cout << "is DOUBLE\n\n";
     return d;
 }
 
