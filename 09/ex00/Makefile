@@ -1,4 +1,4 @@
-NAME = Span
+NAME = btc
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98 -I inc
@@ -8,7 +8,7 @@ INCDIR = inc
 OBJDIR = objects
 DEPDIR = dependances
 
-SRCS = 	$(SRCDIR)/main.cpp
+SRCS = 	$(SRCDIR)/main.cpp $(SRCDIR)/BitcoinExchange.cpp
 OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
 DEPS = $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.cpp=.d)))
 
