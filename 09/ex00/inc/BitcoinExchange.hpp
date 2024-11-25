@@ -8,22 +8,28 @@
 #include <stdexcept>
 #include <iterator>
 #include <limits>
+#include <cstdlib>
 
 class BitcoinExchange
 {
-private:
-    std::map<std::string, float> datedValues;
-public:
-    BitcoinExchange();
-    ~BitcoinExchange();
+    private:
+        std::map<std::string, float> datedValues;
+    public:
+        BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange& other);
 
-    void loadDataBase(const std::string filename);
-    float getRate(const std::string& date) const;
+        BitcoinExchange& operator=(const BitcoinExchange& other);
 
-    bool dateIsValid(const std::string& date) const;
-    bool valueIsValid(float value) const;
+        ~BitcoinExchange();
+        
+        void loadDataBase(const std::string filename);
+        float getRate(const std::string& date) const;
 
-    void printMap(std::string date);
+        bool dateIsValid(const std::string& date) const;
+        bool valueIsValid(float value) const;
+
+        void checkRate(BitcoinExchange& btc, const std::string& path) const;
+        
 };
 
 #endif
