@@ -7,12 +7,12 @@ int main(int argc, char**argv)
     try 
     {
         BitcoinExchange btc;
-        btc.loadDataBase("../data.csv");
+        btc.loadDataBase("data.csv");
         btc.checkRate(btc, argv[1]);
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << std::endl;
     }
-    
+    return 0;
 }
