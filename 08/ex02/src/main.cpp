@@ -14,13 +14,12 @@ int main()
     mstack.push(737);
     mstack.push(0);
     MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
     ++it;
     --it;
-    while (it != ite)
+    while (it != mstack.end())
     {
-    std::cout << *it << std::endl;
-    ++it;
+        std::cout << *it << std::endl;
+        ++it;
     }
     std::stack<int> s(mstack);
 
@@ -36,13 +35,12 @@ int main()
     listTest.push_back(737);
     listTest.push_back(0);
     std::list<int>::iterator it2 = listTest.begin();
-    std::list<int>::iterator ite2 = listTest.end();
     ++it2;
     --it2;
-    while (it2 != ite2)
+    while (it2 != listTest.end())
     {
-    std::cout << *it2 << std::endl;
-    ++it2;
+        std::cout << *it2 << std::endl;
+        ++it2;
     }
     std::list<int> s2(listTest);
 

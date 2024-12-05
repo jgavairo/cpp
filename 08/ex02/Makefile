@@ -1,4 +1,4 @@
-NAME = Span
+NAME = MutantStack
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98 -I inc
