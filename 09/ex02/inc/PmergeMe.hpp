@@ -5,6 +5,8 @@
 #include <deque>
 #include <vector>
 #include <algorithm>
+#include <cmath>
+#include <ctime>
 
 class PmergeMe
 {
@@ -29,7 +31,6 @@ class PmergeMe
         template <typename Container>
         void fordJonhsonSort(Container& container);
 };
-
 
 template <typename Container>
 void PmergeMe::createPairs(Container& container, Container&small, Container& large)
@@ -61,7 +62,6 @@ void PmergeMe::createPairs(Container& container, Container&small, Container& lar
     }
 }
 
-
 template <typename Container>
 void PmergeMe::smallSort(Container& small)
 {
@@ -80,17 +80,35 @@ void PmergeMe::smallSort(Container& small)
     
 }
 
-
 template <typename Container>
-void PmergeMe::largeInsert(Container& small, Container& large)
+void PmergeMe::largeInsert(Container& small, Container& large) 
 {
-    for (typename Container::iterator it = large.begin(); it != large.end(); ++it)
+    size_t n = large.size();
+
+    std::vector<size_t> jacobIndices;
+    size_t k = 0;
+    while (true) 
     {
-        typename Container::iterator smallPos = std::upper_bound(small.begin(), small.end(), *it);
-        small.insert(smallPos, *it);
+        size_t index = static_cast<size_t>(std::floor(n / std::pow(2, k)));
+        if (index == 0) break;
+        jacobIndices.push_back(index - 1);
+        ++k;
+    }
+    std::reverse(jacobIndices.begin(), jacobIndices.end());
+
+    for (std::vector<size_t>::iterator it = jacobIndices.begin(); it != jacobIndices.end(); ++it) {
+        size_t idx = *it;
+        typename Container::iterator pos = std::upper_bound(small.begin(), small.end(), large[idx]);
+        small.insert(pos, large[idx]);
+    }
+
+    for (size_t i = 0; i < n; ++i) {
+        if (std::find(jacobIndices.begin(), jacobIndices.end(), i) == jacobIndices.end()) {
+            typename Container::iterator pos = std::upper_bound(small.begin(), small.end(), large[i]);
+            small.insert(pos, large[i]);
+        }
     }
 }
-
 
 template <typename Container>
 void PmergeMe::fordJonhsonSort(Container& container)
